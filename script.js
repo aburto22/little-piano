@@ -222,9 +222,13 @@ function Toggle({ toggle, toggleMachine }) {
   );
 }
 
-function Pitch({ highPitch, togglePitch }) {
+function Pitch({ toggle, highPitch, togglePitch }) {
   return (
-    <Button variant="outline-primary" onClick={togglePitch}>
+    <Button
+      variant="outline-primary"
+      onClick={togglePitch}
+      disabled={toggle ? false : true}
+    >
       {highPitch ? "Normal" : "High Pitch"}
     </Button>
   );
@@ -258,12 +262,16 @@ function DrumMachine() {
   return (
     <div id="drum-machine">
       <h1 id="title" className="mt-4">
-        Piano Machine
+        Little Piano
       </h1>
       <div id="info">
         <div id="controls">
           <Toggle toggle={toggle} toggleMachine={toggleMachine} />
-          <Pitch highPitch={highPitch} togglePitch={togglePitch} />
+          <Pitch
+            highPitch={highPitch}
+            togglePitch={togglePitch}
+            toggle={toggle}
+          />
         </div>
         <Display
           audioCurrent={audioCurrent}

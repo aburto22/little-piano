@@ -223,11 +223,13 @@ function Toggle(_ref4) {
 }
 
 function Pitch(_ref5) {
-  var highPitch = _ref5.highPitch,
+  var toggle = _ref5.toggle,
+      highPitch = _ref5.highPitch,
       togglePitch = _ref5.togglePitch;
   return /*#__PURE__*/React.createElement(Button, {
     variant: "outline-primary",
-    onClick: togglePitch
+    onClick: togglePitch,
+    disabled: toggle ? false : true
   }, highPitch ? "Normal" : "High Pitch");
 }
 
@@ -274,7 +276,7 @@ function DrumMachine() {
   }, /*#__PURE__*/React.createElement("h1", {
     id: "title",
     className: "mt-4"
-  }, "Piano Machine"), /*#__PURE__*/React.createElement("div", {
+  }, "Little Piano"), /*#__PURE__*/React.createElement("div", {
     id: "info"
   }, /*#__PURE__*/React.createElement("div", {
     id: "controls"
@@ -283,7 +285,8 @@ function DrumMachine() {
     toggleMachine: toggleMachine
   }), /*#__PURE__*/React.createElement(Pitch, {
     highPitch: highPitch,
-    togglePitch: togglePitch
+    togglePitch: togglePitch,
+    toggle: toggle
   })), /*#__PURE__*/React.createElement(Display, {
     audioCurrent: audioCurrent,
     toggle: toggle,
