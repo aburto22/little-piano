@@ -149,7 +149,6 @@ function DrumKey({ id, text, src, playMe, toggle }) {
     audioPlaying.current = false;
   };
 
-  const toggleAudio = () => setPlay((play) => !play);
   const startAudio = () => {
     audio.current.currentTime = 0;
     playMe(id);
